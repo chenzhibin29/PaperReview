@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block title %}答辩{% endblock %}
+{% block body %}
+    <div class="row justify-content-center table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+            <th>教师</th>
+            <th>题目</th>
+            <th>论文</th>
+            <th>指导教师评分</th>
+            <th>评审教师评分</th>
+            <th>总分</th>
+            </thead>
+            <tbody>
+                <meta charset="UTF-8">
+                    <tr>
+                        <td>{{ data[0] }}</td>
+                        <td>{{ data[1] }}</td>
+                        <td><a class="navbar-brand" href="{{ url_for('download') }}">下载</a></td>
+                        <td>{{ data[2] }}</td>
+                        <td>{{ data[3] }}</td>
+                        <td>{{ data[4] }}</td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+{% endblock %}

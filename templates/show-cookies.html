@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block title %}cookies{% endblock %}
+{% block body %}
+    <table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>老师</th>
+        <th>论文题目</th>
+
+    </tr>
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td><button class="btn btn-success" style="margin:25px" onclick="alert('提交成功')" >选择</button><br></td>
+            </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

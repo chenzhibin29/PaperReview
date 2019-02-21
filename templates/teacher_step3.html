@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block title %}答辩{% endblock %}
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                <th>学生</th>
+                <th>题目</th>
+                <th>论文</th>
+                <th>评分</th>
+                </thead>
+                <tbody>
+                    <meta charset="UTF-8">
+                    <form id="form" method="post" >
+                        {% for student in students %}
+                            <tr>
+                                <td>{{ student[0] }}</td>
+                                <td>{{ student[1] }}</td>
+                                <td><a class="navbar-brand" href="{{ url_for('download') }}">下载</a></td>
+                                <td>
+                                    <div>
+                                    {{form.scores[loop.index0]}}
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </form>
+                </tbody>
+            </table><br>
+        </div>
+        <div class="row" style="width:100%">
+            <div class="row" style="margin-left: 90%;">
+                <button class="btn btn-success" form="form" onclick="alert('提交成功')" type="submit" style="float:right">提交</button><br>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

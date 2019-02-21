@@ -1,0 +1,62 @@
+{% extends 'layout.html' %}
+{% block title %}表单结果{% endblock %}
+{% block body %}
+
+    <div class="row justify-content-center">
+        <div class="col">
+            <h1>上传的文件</h1>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">文件名</th>
+                        <th scope="col">文件内容</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for file in session.files %}
+                        <tr>
+                            <td>{{ file }}</td>
+                            <td><a href="{{ url_for('get_uploaded_file',filename=file) }}">点击查看</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container footer">
+                <h1>留言</h1>
+
+              评论对象: <input type="text" name="say_user"><br>
+              评论内容: <input type="text" name="say_title"><br>
+              改进意见: <input type="text" name="say"><br>
+               <button onclick="alert('提交成功')" >提交留言</button>
+            </form>
+
+      <table border="2">
+            <thead>
+            <tr>
+                 <th>评论内容</th>
+                 <th>改进意见</th>
+                <th>评论对象</th>
+                 <th>留言时间</th>
+            </tr>
+            </thead>
+           <tbody>
+             {% for say in says %}
+                 <tr>
+                     <td>{{ say['title'] }}</td>
+                    <td>{{ say['text'] }}</td>
+                    <td>{{ say['user'] }}</td>
+                     <td>{{ say['date'] }}</td>
+                </tr>
+           {% endfor %}
+            </tbody>
+         </table>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}主页{% endblock %}
+{% block body %}
+
+    <div class="jumbotron",>
+
+        <div align="center">
+           <a class="navbar-brand" href="{{ url_for('step1') }}" style=" font-size:1.5rem">   选题  </a>
+           <a class="navbar-brand" href="{{ url_for('step2') }}" style=" font-size:1.5rem">提交/修改论文</a>
+           <a class="navbar-brand" href="{{ url_for('step3') }}" style=" font-size:1.5rem">  答辩       </a>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

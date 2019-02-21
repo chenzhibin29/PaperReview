@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block title %}cookies{% endblock %}
+{% block body %}
+    <table class="table table-bordered">
+    <tr>
+        <th>id</th>
+        <th>老师</th>
+        <th>论文题目</th>
+
+    </tr>
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }} <a class="navbar-brand" href="{{ url_for('delete') }}" style=" font-size:1.5rem"> 审核不通过 </a>
+                </td>
+
+            </tr>
+
+    {% endfor %}
+    </table>
+{% endblock %}

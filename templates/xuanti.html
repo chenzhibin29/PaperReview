@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block title %}提交表单{% endblock %}
+{% block body %}
+    <div class="row justify-content-center">
+
+        <div class="col-6">
+            <form id="form1" method="post" action="/api/upload" enctype="multipart/form-data">
+                <h2>学生请提交论文并查看评分细则</h2>
+                <div>
+                    <input id="File1" type="file" name="myfile"/>  <!--后台代码中获取文件是通过form的name来标识的-->
+                    <input type="submit" value="提交" onclick="alert('提交成功')" >
+                </div>
+                <a class="navbar-brand" href="{{ url_for('download') }}">下载查看细则</a>
+            </form>
+
+
+            {% if message %}{{message}}{% endif %}
+        </div>
+    </div>
+
+
+
+{% endblock %}

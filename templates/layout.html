@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/site.css') }}"/>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('index') }}">电子科大论文评审系统</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div >
+            <ul class="navbar-nav">
+                {% if login_user %}
+                    <a class="navbar-brand" href="{{ url_for('step1') }}" style=" font-size:1.5rem">   选题  </a>
+                    <a class="navbar-brand" href="{{ url_for('step2') }}" style=" font-size:1.5rem">提交/修改论文</a>
+                    <a class="navbar-brand" href="{{ url_for('step3') }}" style=" font-size:1.5rem">  答辩       </a>
+
+                    <a class="navbar-brand" href="{{ url_for('index') }}" style=" font-size:1rem">{{ login_user }}</a>
+                    <a class="navbar-brand" href="{{ url_for('logout') }}" style=" font-size:1rem">退出</a>
+                {% else %}
+                    <a class="navbar-brand" href="{{ url_for('register') }}" style=" font-size:1rem">注册</a>
+                    <a class="navbar-brand" href="{{ url_for('login') }}" style=" font-size:1rem">登陆</a><
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+<main class="container" role="main">
+    {% block body %}{% endblock %}
+</main>
+
+<div class="container footer">
+    <hr>
+    <p>综合设计Ⅳ</p>
+</div>
+
+<script src="{{ url_for('static',filename='js/jquery.js') }}"></script>
+<script src="{{ url_for('static',filename='js/bootstrap.bundle.js') }}"></script>
+
+</body>
+</html>
